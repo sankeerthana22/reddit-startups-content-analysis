@@ -2,3 +2,7 @@ venv/
 .env
 __pycache__/
 .DS_Store
+data/raw/reddit_database.csv
+reddit_startups.db
+data/cleaned/reddit_posts_cleaned.csv
+data/cleaned/reddit_posts_cleaned.csv
