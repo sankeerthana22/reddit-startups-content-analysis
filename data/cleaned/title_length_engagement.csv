@@ -1,0 +1,5 @@
+Title Length Category,Total Posts,Avg Engagement Score,Avg Upvotes,Avg Comments,Category
+Very Long (> 100 chars),47944,10.44,5.35,5.08,Title Length Impact
+Long (61-100 chars),145483,8.95,4.76,4.19,Title Length Impact
+Medium (30-60 chars),216613,7.58,3.79,3.79,Title Length Impact
+Short (< 30 chars),69116,6.75,3.19,3.55,Title Length Impact
