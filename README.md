@@ -162,7 +162,10 @@ Based on the analysis, the following actions are recommended for startup content
     │   └── analysis_queries.sql
     │
     ├── images/
-    │   └── dashboard.png
+    │   ├── top_subreddits_dashboard.png
+    │   ├── best_hours_dashboard.png
+    │   ├── best_days_dashboard.png
+    │   └── title_length_dashboard.png
     │
     ├── requirements.txt
     └── README.md
@@ -209,23 +212,4 @@ More importantly, it highlights the importance of:
 Satya Seetha Sankeerthana Mulukutla  
 MS Computer Science — University of Central Missouri  
 GitHub: https://github.com/sankeerthana22
-
----
-
-## Dashboard
-
-### Overall Dashboard
-![Dashboard](images/dashboard.png)
-
-### Engagement by Subreddit
-![Subreddit Engagement](images/subreddit_engagement.png)
-
-### Engagement by Hour
-![Hourly Engagement](images/hourly_engagement.png)
-
-### Engagement by Day
-![Daily Engagement](images/daily_engagement.png)
-
-### Title Length vs Engagement
-![Title Length](images/title_length_engagement.png)
 
