@@ -1,125 +1,199 @@
 # Reddit Startups Content Analysis
 
-A real-world data analytics project analyzing 545,000+ Reddit posts to identify content performance patterns, optimal posting times, and engagement drivers across data and technology communities.
+An end-to-end data analytics project analyzing **545,000+ Reddit posts** to identify engagement patterns across startup, data, and technology communities.
 
-This project demonstrates end-to-end analytics skills using Python, SQL, SQLite, and Power BI on real publicly available data.
+This project focuses on **real-world analytical challenges** such as messy data, engagement metric design, and interpretation limitations, and translates findings into **actionable content strategy recommendations**.
 
 ---
 
 ## Business Problem
 
-Content teams and community managers need to understand what drives engagement on Reddit. Posting at the wrong time, using the wrong title length, or targeting the wrong community can significantly reduce reach and impact.
+Content teams, founders, and community managers often struggle to answer:
 
-This project answers the following business questions:
+- Where should we post for maximum engagement?
+- When should we post to increase visibility?
+- What content characteristics influence engagement?
 
-- Which subreddits drive the highest user engagement?
-- What days and times generate the most post engagement?
-- Does title length affect engagement performance?
-
----
-
-## Key Findings
-
-- **MachineLearning** is the highest-engagement subreddit with an average engagement score of 11.87
-- **Sunday and Saturday** are the best days to post for maximum engagement
-- **5PM (Hour 17)** is the peak posting hour across all communities
-- **Longer titles (100+ characters)** generate 55% more engagement than short titles
-
----
-
-## Dashboard Previews
-
-### Top Subreddits by Engagement
-![Top Subreddits](images/top_subreddits_dashboard.png)
-
-### Best Days to Post
-![Best Days](images/best_days_dashboard.png)
-
-### Best Hours to Post
-![Best Hours](images/best_hours_dashboard.png)
-
-### Title Length Impact on Engagement
-![Title Length](images/title_length_dashboard.png)
+This project uses large-scale Reddit data to provide **data-driven insights** into these questions.
 
 ---
 
 ## Dataset
 
-- **Source:** Publicly available Reddit dataset sourced from Kaggle
-- **Subreddits covered:** Data science, machine learning, analytics, statistics and related technology communities
-- **Raw records:** 545,427 posts
-- **Clean records:** 479,156 posts after cleaning
-- **Fields:** post title, author, subreddit, score, number of comments, timestamp, post body, subreddit subscribers
+- Source: Public Reddit dataset (Kaggle)
+- Total Records (Raw): 545,427 posts
+- Records After Cleaning: 479,156 posts
 
 ---
 
-## Data Cleaning Highlights
+## Tools & Technologies
 
-Real-world data is messy. This project involved significant cleaning before any analysis could be performed:
-
-- Removed 45,294 duplicate posts
-- Removed 20,976 deleted and bot author records
-- Fixed impossible negative comment count values
-- Converted Unix timestamps to readable datetime format
-- Extracted time features — hour, day of week, month, year
-- Created engagement score combining upvotes and comments
-- Filled and standardized missing values across all columns
+- **Python** (Pandas, NumPy) — data cleaning and feature engineering
+- **SQL (SQLite)** — analytical queries
+- **Power BI** — dashboard and visualization
+- **Jupyter Notebook** — exploratory analysis
 
 ---
 
-## Project Workflow
+## Data Cleaning & Preparation
 
-1. Load raw Reddit dataset into Pandas
-2. Perform data cleaning and feature engineering
-3. Load cleaned data into SQLite database
-4. Run SQL queries to analyze engagement patterns
-5. Export results to CSV for Power BI
-6. Build interactive dashboards in Power BI
+- Removed duplicate records
+- Filtered deleted, removed, and bot-generated posts where applicable
+- Handled inconsistent or invalid comment values
+- Converted timestamps into datetime format
+- Engineered new features:
+  - Posting hour
+  - Day of week
+  - Title length
+- Created derived analytical datasets for SQL analysis and dashboarding
 
 ---
 
-## Tools and Technologies
+## Methodology
 
-- **Python** — data cleaning and pipeline automation
-- **Pandas** — data manipulation and feature engineering
-- **SQL / SQLite** — structured engagement analysis
-- **Power BI** — dashboard design and visualization
-- **Jupyter Notebook** — interactive analysis environment
+### Engagement Metric Definition
+
+To measure post performance, an engagement score was defined as:
+
+**Engagement Score = Upvotes + (2 × Number of Comments)**
+
+**Rationale:**
+- Comments represent deeper user interaction than upvotes
+- Comments were weighted more heavily to reflect stronger engagement quality rather than surface-level visibility
+
+**Note:**
+Alternative approaches such as normalization by subreddit size or log-scaled engagement were considered but not implemented in this version of the analysis.
+
+---
+
+## Business Questions
+
+1. Which subreddits generate the highest engagement per post?
+2. What posting times are associated with stronger engagement?
+3. Do certain days of the week perform better than others?
+4. Is there a relationship between title length and engagement?
+
+---
+
+## Key Insights (With Analytical Considerations)
+
+### 1. Subreddit Engagement Distribution
+- Smaller niche subreddits often showed higher average engagement per post
+- Larger subreddits generated higher total engagement volume but lower average engagement per individual post
+
+**Interpretation:**  
+Engagement is not driven purely by audience size; community behavior and content expectations vary significantly across subreddits.
+
+### 2. Posting Time Patterns
+- Higher engagement was observed during **late afternoon to evening hours, approximately 4 PM to 8 PM**
+
+**Limitation:**  
+- Post timestamps reflect creation time, not necessarily the audience’s local timezone
+- Observed patterns may be influenced by the dominant geographic distribution of Reddit users
+
+### 3. Day-of-Week Trends
+- Weekend posting, especially on **Saturday and Sunday**, showed slightly higher engagement on average
+
+**Caution:**  
+- The difference is moderate rather than extreme
+- This may reflect higher user activity levels rather than stronger content quality alone
+
+### 4. Title Length vs Engagement
+- Longer titles were associated with higher average engagement
+
+**Critical Note:**  
+- This relationship is correlational, not causal
+- Longer titles may be more common in certain post types such as storytelling, advice, or detailed problem descriptions
+
+Further validation would be required before using title length alone as a strict content optimization rule.
+
+---
+
+## Limitations
+
+- This analysis is based on observational data rather than controlled experimentation
+- Engagement metrics may be influenced by viral outliers
+- Time-based analysis does not account for differences in user timezone
+- Subreddit audiences vary significantly in behavior, size, and posting norms
+- Title length findings are correlational and should not be interpreted as causal
+
+These limitations should be considered before applying the findings directly to business decisions.
+
+---
+
+## Business Recommendations
+
+Based on the analysis, the following actions are recommended for startup content teams and community-focused brands:
+
+### 1. Refine Posting Strategy
+- Prioritize posting during late afternoon to evening hours
+- Test weekend versus weekday performance within specific subreddit communities rather than assuming a universal posting rule
+
+### 2. Target Communities Strategically
+- Use niche subreddits when the goal is higher engagement per post
+- Use larger subreddits when the goal is broader reach and visibility
+
+### 3. Improve Content Framing
+- Use descriptive, context-rich titles where appropriate
+- Align title style and tone with the norms of each target subreddit instead of optimizing purely for length
+
+### 4. Validate Before Scaling
+- Run A/B tests on title structure and posting windows
+- Normalize engagement by subreddit size in future analysis
+- Re-test findings after excluding extreme viral outliers to confirm robustness
 
 ---
 
 ## Project Structure
-```
-reddit-startups-content-analysis/
-│
-├── data/
-│   ├── raw/
-│   │   └── reddit_database.csv
-│   └── cleaned/
-│       ├── reddit_posts_cleaned.csv
-│       ├── top_subreddits_engagement.csv
-│       ├── best_days_to_post.csv
-│       ├── best_hours_to_post.csv
-│       └── title_length_engagement.csv
-│
-├── notebooks/
-│   └── reddit_startups_analysis.ipynb
-│
-├── sql/
-│   └── engagement_analysis.sql
-│
-├── images/
-│   ├── top_subreddits_dashboard.png
-│   ├── best_days_dashboard.png
-│   ├── best_hours_dashboard.png
-│   └── title_length_dashboard.png
-│
-├── requirements.txt
-└── README.md
-```
+
+    reddit-startups-content-analysis/
+    │
+    ├── data/
+    │   └── cleaned/
+    │       ├── subreddit_engagement.csv
+    │       ├── hourly_engagement.csv
+    │       ├── daily_engagement.csv
+    │       └── title_length_engagement.csv
+    │
+    ├── notebooks/
+    │   └── data_cleaning_and_eda.ipynb
+    │
+    ├── sql/
+    │   └── analysis_queries.sql
+    │
+    ├── images/
+    │   └── dashboard.png
+    │
+    ├── requirements.txt
+    └── README.md
+
+---
+
+## Dashboard
+
+The Power BI dashboard visualizes:
+
+- Engagement by subreddit
+- Engagement by posting hour
+- Engagement by day of week
+- Title length vs engagement
+
+---
+
+## Conclusion
+
+This project demonstrates how large-scale, messy social data can be transformed into actionable insights.
+
+More importantly, it highlights the importance of:
+
+- careful metric design
+- critical interpretation of results
+- understanding analytical limitations
 
 ---
 
 ## Author
 
-Satya Seetha Sankeerthana Mulukutla
+Satya Seetha Sankeerthana Mulukutla  
+MS Computer Science — University of Central Missouri  
+GitHub: https://github.com/sankeerthana22
