@@ -64,6 +64,8 @@ To measure post performance, an engagement score was defined as:
 **Note:**
 Alternative approaches such as normalization by subreddit size or log-scaled engagement were considered but not implemented in this version of the analysis.
 
+Sensitivity analysis on alternative weightings (e.g., 1.5x, 3x) was not performed and may affect results.
+
 ---
 
 ## Business Questions
@@ -159,7 +161,7 @@ Based on the analysis, the following actions are recommended for startup content
     │   └── data_cleaning_and_eda.ipynb
     │
     ├── sql/
-    │   └── analysis_queries.sql
+    │   └── reddit_engagement_analysis.sql
     │
     ├── images/
     │   ├── top_subreddits_dashboard.png
@@ -204,6 +206,8 @@ More importantly, it highlights the importance of:
 - careful metric design
 - critical interpretation of results
 - understanding analytical limitations
+
+Future work would include statistical testing and normalization by subreddit size.
 
 ---
 
