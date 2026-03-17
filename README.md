@@ -118,6 +118,7 @@ Further validation would be required before using title length alone as a strict
 - Time-based analysis does not account for differences in user timezone
 - Subreddit audiences vary significantly in behavior, size, and posting norms
 - Title length findings are correlational and should not be interpreted as causal
+- Statistical significance testing was not performed in this version because the published project outputs are aggregated analytical tables rather than raw post-level experimental data
 
 These limitations should be considered before applying the findings directly to business decisions.
 
@@ -162,6 +163,9 @@ Based on the analysis, the following actions are recommended for startup content
     │
     ├── sql/
     │   └── reddit_engagement_analysis.sql
+│
+├── analysis/
+│   └── engagement_significance_check.py
     │
     ├── images/
     │   ├── top_subreddits_dashboard.png
@@ -216,4 +220,3 @@ Future work would include statistical testing and normalization by subreddit siz
 Satya Seetha Sankeerthana Mulukutla  
 MS Computer Science — University of Central Missouri  
 GitHub: https://github.com/sankeerthana22
-
