@@ -178,6 +178,18 @@ The Power BI dashboard visualizes:
 - Engagement by day of week
 - Title length vs engagement
 
+### Top Subreddits by Engagement
+![Top Subreddits by Engagement](images/top_subreddits_dashboard.png)
+
+### Best Hours to Post
+![Best Hours to Post](images/best_hours_dashboard.png)
+
+### Best Days to Post
+![Best Days to Post](images/best_days_dashboard.png)
+
+### Title Length Impact on Engagement
+![Title Length Impact on Engagement](images/title_length_dashboard.png)
+
 ---
 
 ## Conclusion
@@ -197,3 +209,23 @@ More importantly, it highlights the importance of:
 Satya Seetha Sankeerthana Mulukutla  
 MS Computer Science — University of Central Missouri  
 GitHub: https://github.com/sankeerthana22
+
+---
+
+## Dashboard
+
+### Overall Dashboard
+![Dashboard](images/dashboard.png)
+
+### Engagement by Subreddit
+![Subreddit Engagement](images/subreddit_engagement.png)
+
+### Engagement by Hour
+![Hourly Engagement](images/hourly_engagement.png)
+
+### Engagement by Day
+![Daily Engagement](images/daily_engagement.png)
+
+### Title Length vs Engagement
+![Title Length](images/title_length_engagement.png)
+
