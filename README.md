@@ -66,6 +66,8 @@ Alternative approaches such as normalization by subreddit size or log-scaled eng
 
 Sensitivity analysis on alternative weightings (e.g., 1.5x, 3x) was not performed and may affect results.
 
+This weighting was chosen as a simple, interpretable heuristic for descriptive analysis rather than a statistically validated coefficient.
+
 ---
 
 ## Business Questions
